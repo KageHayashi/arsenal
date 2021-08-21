@@ -30,7 +30,7 @@ except Exception as e:
 
 # Receive banner
 banner = s.recv(1024)
-print(banner.decode('utf-8')
+print(banner.decode('utf-8'))
 
 # Try to VRFY username
 try:
