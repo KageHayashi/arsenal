@@ -37,7 +37,7 @@ try:
     print('[*] Sending VRFY')
     s.send(('VRFY ' + username + '\r\n').encode())
     res = s.recv(1024)
-    print('[+] Received: ', res.decode('utf-8'))
+    print('[+] Received:', res.decode('utf-8'))
 except Exception as e:
     print('[-] Protocol error.')
     print(e)
