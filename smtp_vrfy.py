@@ -11,7 +11,7 @@
 import socket
 import sys
 
-if len(sys.argv) != 2:
+if len(sys.argv) != 3:
     print(f"Usage: {sys.argv[0]} <server> <username>")
     sys.exit(0)
 
@@ -19,18 +19,28 @@ server = sys.argv[1]
 username = sys.argv[2]
 
 # Create a socket and connect to server
+print('[*] Connecting to server...')
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-connect = s.connect((server, 25))
+try:    
+    connect = s.connect((server, 25))
+except Exception as e:
+    print('[-] Connection failed. Closing...')
+    print(e)
+    sys.exit(0)
 
 # Receive banner
 banner = s.recv(1024)
-
 print(banner)
 
 # Try to VRFY username
-s.send('VRFY ' + username + '\r\n')
-res = s.recv(1024)
+try:
+    print('[*] Sending VRFY')
+    s.send(('VRFY ' + username + '\r\n').encode())
+    res = s.recv(1024)
+    print('[+] Received: ', res.decode('utf-8'))
+except Exception as e:
+    print('[-] Protocol error.')
+    print(e)
 
-print(res)
-
-
+# Close socket
+s.close()
