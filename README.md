@@ -1,2 +1,2 @@
 # arsenal
-Mini scripts for pen testing and network analysis
+Mini scripts and notes for pen testing and network analysis
