@@ -21,6 +21,9 @@ $Searcher.SearchRoot = $objDomain
 <# Current filter enumerates for all users in the AD #>
 $Searcher.filter="samAccountType=805306368"
 
+<# We could also use the following to filter for a specific user name #>
+<# $Searcher.filter="name=admin" #>
+
 $Result = $Searcher.FindAll()
 
 Foreach($obj in $Result)
