@@ -1,3 +1,5 @@
+# This script attempts to get the clear key of all WLAN profiles saved on the computer
+
 $all_profiles = netsh wlan show profiles | Select-String '\:(.+)$'
 $all_clear = @()
 $no_clear = @()
