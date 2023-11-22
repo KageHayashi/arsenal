@@ -1,3 +1,5 @@
+# RC4 implementation used for encrypting raw binary shellcode.
+
 import sys
 
 def rc4(data, key):

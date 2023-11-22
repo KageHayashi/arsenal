@@ -26,7 +26,7 @@ void rc4(unsigned char* data, int len, const char* key) {
     int i = 0;
     j = 0;
     for (int n = 0; n < len; n++) {
-        i i= (i + 1) % 256;
+        i = (i + 1) % 256;
         j = (j + s[i]) % 256;
         unsigned char tmp = s[i];
         s[i] = s[j];
